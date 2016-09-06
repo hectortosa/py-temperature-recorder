@@ -28,13 +28,12 @@ Some recorders has a `format` configuration that can be used to format the outpu
 Print the data received through the console using the string format configured in `format`.
 
     {
-        "recorders": [
-        {
+        "recorders": [{
             "type": "print",
             "config": {
                 "format": "{device_id} C {celsius} / F {fahrenheit}"
             }
-        }
+        }]
     }
 
 ### File recorder
@@ -42,12 +41,12 @@ Print the data received through the console using the string format configured i
 This recorder will create a file for each sensor read using the device id of the sensor as file name. The files will be stored in the path configured in `container` with the extension specified in `extension`. The data read from the sensor will be write using the string format in `format`.
 
     {
-        {
+        "recorders": [{
             "type": "file",
             "config": {
                 "format": "{timestamp},{celsius},C",
-                "container": "/temperaturemonitor/",
+                "container": "/temperature/",
                 "extension": ".log"
             }
-        }
+        }]
     }
