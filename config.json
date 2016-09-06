@@ -14,13 +14,6 @@
                 "container": "/temperaturemonitor/",
                 "extension": ".log"
             }
-        },
-        {
-            "type": "http",
-            "config": {
-                "endpoint": "http://brewerx.azurewebsites.net/api/temperature/",
-                "method": "POST"
-            }
         }
     ]
 }
