@@ -30,22 +30,21 @@ def read_temp():
     for folder in devices_folder:
         f = open(folder + measure_file, 'r')
         lines = f.readlines()
-        value = read_value(lines)
         f.close()
-        measures.append(Measurement(folder, value))
+
+        value = read_value(lines)
+
+        if value not None:
+            measures.append(Measurement(folder, value))
 
     return measures
  
 def read_value(lines):
-    while lines[0].strip()[-3:] != 'YES':
-        time.sleep(0.2)
-        lines = read_temp_raw()
-
-    equals_pos = lines[1].find('t=')
-
-    if equals_pos != -1:
+    if lines[0].strip()[-3:] == 'YES' and lines[1].find('t=') != -1:
         temp_string = lines[1][equals_pos+2:]
         return float(temp_string)
+    else:
+        return None
 	
 while True:
     measures = read_temp()
