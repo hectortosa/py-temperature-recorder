@@ -58,7 +58,7 @@ def start_reading():
     while True:
         measures = read_temp()
 
-        if measures.count > 0:
+        if len(measures) > 0:
             for recorder in RECORDERS:
                 for measure in measures:
                     recorder.record(measure)

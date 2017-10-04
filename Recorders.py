@@ -11,7 +11,7 @@ class PrintRecorder(Recorder):
     def __init__(self, config):
         Recorder.__init__(self, 'file')
 
-        self.format = config.format
+        self.format = config['format']
 
     def record(self, measure: Measurement):
         line = self.format.format(
@@ -26,9 +26,9 @@ class FileRecorder(Recorder):
     def __init__(self, config):
         Recorder.__init__(self, 'file')
 
-        self.format = config.format
-        self.container = config.container
-        self.extension = config.extension
+        self.format = config['format']
+        self.container = config['container']
+        self.extension = config['extension']
 
     def record(self, measure: Measurement):
         log_entry = self.format.format(

@@ -11,4 +11,4 @@ recorderInitializers = dict([
     ('file', create_file_recorder)])
 
 def create_recorder(config):
-    return recorderInitializers[config.type](config.config)
+    return recorderInitializers[config['type']](config['config'])
