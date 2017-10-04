@@ -14,6 +14,13 @@
                 "container": "/temperaturemonitor/",
                 "extension": ".log"
             }
+        },
+        {
+            "type": "http",
+            "config": {
+                "endpoint": "https://host/api/temperature/",
+                "method": "POST"
+            }
         }
     ]
 }
