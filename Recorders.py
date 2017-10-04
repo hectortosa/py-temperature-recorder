@@ -45,4 +45,5 @@ class FileRecorder(Recorder):
             os.makedirs(directory)
 
         f = open(file_path, 'a')
-        f.writelines([log_entry])
+        f.write(log_entry)
+        f.write('\n')
