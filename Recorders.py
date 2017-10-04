@@ -1,3 +1,4 @@
+import os
 from Measurement import Measurement
 
 class Recorder(object):
@@ -37,7 +38,11 @@ class FileRecorder(Recorder):
             fahrenheit=measure.get_fahrenheit(),
             timestamp=measure.timestamp)
 
-        file_path = self.container + measure.device_id.split('/')[-1] + self.extension
+        directory = self.container + measure.device_id.split('/')[-1]
+        file_path = directory + self.extension
+
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
         f = open(file_path, 'w+')
         f.writelines([log_entry])
