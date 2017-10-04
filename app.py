@@ -2,7 +2,7 @@ import os
 import glob
 import json
 import time
-import Measurement
+from Measurement import Measurement
 import RecorderFactory
 
 os.system('modprobe w1-gpio')
@@ -38,7 +38,7 @@ def read_temp():
         value = read_value(lines)
 
         if value is not None:
-            measures.append(Measurement(folder, value))
+            measures.append(Measurement(folder.split('/')[-1], value))
 
     return measures
 
@@ -58,7 +58,7 @@ def start_reading():
     while True:
         measures = read_temp()
 
-        if measures.count > 0:
+        if len(measures) > 0:
             for recorder in RECORDERS:
                 for measure in measures:
                     recorder.record(measure)
