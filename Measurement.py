@@ -4,7 +4,7 @@ class Measurement(object):
     def __init__(self, device_id, value):
         self.device_id = device_id
         self.value = value
-        self.timestamp = datetime.datetime.utcnow
+        self.timestamp = datetime.datetime.utcnow()
 
     def get_celsius(self):
         return self.value / 1000.0
