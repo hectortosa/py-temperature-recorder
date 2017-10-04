@@ -44,5 +44,5 @@ class FileRecorder(Recorder):
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-        f = open(file_path, 'w+')
+        f = open(file_path, 'a')
         f.writelines([log_entry])
