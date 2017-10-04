@@ -38,7 +38,7 @@ def read_temp():
         value = read_value(lines)
 
         if value is not None:
-            measures.append(Measurement(folder, value))
+            measures.append(Measurement(folder.split('/')[-1], value))
 
     return measures
 

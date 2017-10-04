@@ -38,7 +38,7 @@ class FileRecorder(Recorder):
             fahrenheit=measure.get_fahrenheit(),
             timestamp=measure.timestamp)
 
-        directory = self.container + measure.device_id.split('/')[-1]
+        directory = self.container + measure.device_id
         file_path = directory + self.extension
 
         if not os.path.exists(directory):
