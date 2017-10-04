@@ -36,8 +36,8 @@ class FileRecorder(Recorder):
             celsius=measure.get_celsius(),
             fahrenheit=measure.get_fahrenheit(),
             timestamp=measure.timestamp)
-            
-        file_path = self.container + measure.device_id.split('/')[-1] + '/' + self.extension
+
+        file_path = self.container + measure.device_id.split('/')[-1] + self.extension
 
         f = open(file_path, 'w')
         f.writelines([log_entry])
