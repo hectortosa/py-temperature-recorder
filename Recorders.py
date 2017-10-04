@@ -39,5 +39,5 @@ class FileRecorder(Recorder):
 
         file_path = self.container + measure.device_id.split('/')[-1] + self.extension
 
-        f = open(file_path, 'w')
+        f = open(file_path, 'w+')
         f.writelines([log_entry])
