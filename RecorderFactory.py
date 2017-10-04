@@ -1,4 +1,4 @@
-import Recorder, PrintRecorder, FileRecorder
+from Recorders import Recorder, PrintRecorder, FileRecorder
 
 factory = {
     'print': create_print_recorder,

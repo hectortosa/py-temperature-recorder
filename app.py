@@ -2,7 +2,7 @@ import os
 import glob
 import json
 import time
-import Measurement
+from Measurement import Measurement
 import RecorderFactory
 
 os.system('modprobe w1-gpio')
