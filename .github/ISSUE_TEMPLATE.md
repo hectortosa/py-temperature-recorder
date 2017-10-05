@@ -1,7 +1,16 @@
+# Feature
 
-## Issue description
+## Description
 
-## Steps to reproduce issue
+## Requisites
+
+---
+
+# Bug
+
+## Description
+
+## Steps to reproduce
 
 ## Expected/Proposed behaviour
 
