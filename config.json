@@ -18,8 +18,10 @@
         {
             "type": "http",
             "config": {
-                "endpoint": "https://host/api/temperature/",
-                "method": "POST"
+                "endpoint": "https://host/api/temperature/{device_id}",
+                "headers": [
+                    { "Authorization": "Bearer ABCDE12345" }
+                ]
             }
         }
     ]
