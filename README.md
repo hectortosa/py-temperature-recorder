@@ -14,7 +14,6 @@ Existing recorders are:
 
 - Print
 - File
-- _Http_ (under development)
 
 Some recorders has a `format` configuration that can be used to format the output of the data. Fields that can be used in the string format are:
 
