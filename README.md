@@ -16,7 +16,6 @@ Existing recorders are:
 
 - Print
 - File
-- Http
 
 A Measurement object will be passed to each configured recorder each time the sensor is read. This object has following structure:
 
