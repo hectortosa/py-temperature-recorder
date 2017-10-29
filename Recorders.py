@@ -1,5 +1,6 @@
 import os
 from Measurement import Measurement
+import datetime
 
 class Recorder(object):
     def __init__(self, recorderType):
@@ -31,6 +32,9 @@ class FileRecorder(Recorder):
         self.container = config['container']
         self.extension = config['extension']
 
+    def get_filename(self):
+        return "%s%s"%(datetime.date.today().strftime("%Y-%m-%d"), self.extension)
+        
     def record(self, measure: Measurement):
         log_entry = self.format.format(
             device_id=measure.device_id,
@@ -39,7 +43,7 @@ class FileRecorder(Recorder):
             timestamp=measure.timestamp)
 
         directory = self.container + measure.device_id
-        file_path = directory + self.extension
+        file_path = directory + "/" + self.get_filename()
 
         if not os.path.exists(directory):
             os.makedirs(directory)
