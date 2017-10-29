@@ -11,17 +11,20 @@
             "type": "file",
             "config": {
                 "format": "{timestamp},{celsius},C",
-                "container": "/temperaturemonitor/",
+                "container": "temperaturemonitor/",
                 "extension": ".log"
             }
         },
         {
             "type": "http",
             "config": {
-                "endpoint": "https://host/api/temperature/{device_id}",
-                "headers": [
-                    { "Authorization": "Bearer ABCDE12345" }
-                ]
+                "endpoint": "http://localhost:8889/temperature/{device_id}",
+		"method": "POST",
+                "headers": { "Authorization": "Bearer ABCDE12345" },
+		"json_template": {"celsius": "{celsius}",
+				  "fahrenheit": "{fahrenheit}",
+				  "timestamp": "{timestamp}",
+				  "device_id": "{device_id}"}
             }
         }
     ]
