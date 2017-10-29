@@ -21,6 +21,7 @@ class MqttRecorder(Recorder):
     def _open_client(self):
         self.client = mqtt.Client(self.client_id)
         self.client.username_pw_set(self.username, self.password)
+        self.client.on_disconnect = lambda client,userdata,rc: self._open_client()
         self.client.connect(self.host, self.port, self.timeout)
     
     def get_client(self):
@@ -37,3 +38,4 @@ class MqttRecorder(Recorder):
         
         client = self.get_client()
         client.publish(self.topic, payload, qos=self.qos, retain=False)
+        client.loop_misc()
