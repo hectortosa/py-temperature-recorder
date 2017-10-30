@@ -14,6 +14,20 @@
                 "container": "/temperaturemonitor/",
                 "extension": ".log"
             }
+        },
+        {
+            "type": "mqtt",
+            "config": {
+                "format": "{timestamp},{celsius},C",
+                "host": "192.168.9.49",
+		"port": 1883,
+		"client_id": "sensor-1",
+		"username": "sensor",
+		"password": "sensor",
+		"topic": "sensor/sensor1",
+		"timeout": 30,
+		"qos": 1
+            }
         }
     ]
 }
