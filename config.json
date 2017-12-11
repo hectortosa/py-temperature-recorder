@@ -1,7 +1,6 @@
 {
     "read-interval": 30,
-    "recorders": [
-        {
+    "recorders": [{
             "type": "print",
             "config": {
                 "format": "{device_id} C {celsius} / F {fahrenheit}"
@@ -11,8 +10,20 @@
             "type": "file",
             "config": {
                 "format": "{timestamp},{celsius},C",
-                "container": "/temperaturemonitor/",
+                "container": "temperaturemonitor/",
                 "extension": ".log"
+            }
+        },
+        {
+            "type": "http",
+            "config": {
+                "uri": "http://localhost:8889/temperature/{device_id}",
+                "json-template": {
+                    "celsius": "{celsius}",
+                    "fahrenheit": "{fahrenheit}",
+                    "timestamp": "{timestamp}",
+                    "device_id": "{device_id}"
+                }
             }
         }
     ]
