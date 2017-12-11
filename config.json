@@ -1,7 +1,6 @@
 {
     "read-interval": 30,
-    "recorders": [
-        {
+    "recorders": [{
             "type": "print",
             "config": {
                 "format": "{device_id} C {celsius} / F {fahrenheit}"
@@ -18,13 +17,13 @@
         {
             "type": "http",
             "config": {
-                "endpoint": "http://localhost:8889/temperature/{device_id}",
-		"method": "POST",
-                "headers": { "Authorization": "Bearer ABCDE12345" },
-		"json_template": {"celsius": "{celsius}",
-				  "fahrenheit": "{fahrenheit}",
-				  "timestamp": "{timestamp}",
-				  "device_id": "{device_id}"}
+                "uri": "http://localhost:8889/temperature/{device_id}",
+                "json-template": {
+                    "celsius": "{celsius}",
+                    "fahrenheit": "{fahrenheit}",
+                    "timestamp": "{timestamp}",
+                    "device_id": "{device_id}"
+                }
             }
         }
     ]

@@ -23,9 +23,9 @@ class HttpRecorder(Recorder):
     def __init__(self, config):
         Recorder.__init__(self, 'http')
         print("http recorder init")
-        self.template = config['json_template']
-        self.method = config['method']
-        self.url = config['endpoint']
+        
+        self.url = config['uri']
+        self.template = config['json-template']
         self.headers = config['headers']
         self.headers['content-type'] = 'application/json'
 

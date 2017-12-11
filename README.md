@@ -85,10 +85,16 @@ Example configuration:
     "recorders": [{
         "type": "http",
         "config": {
-            "endpoint": "https://host/api/temperature/{device_id}",
-            "headers": [
-                { "Authorization": "Bearer ABCDE12345" }
-            ]
+            "uri": "https://host/api/temperature/{device_id}",
+            "json-template": {
+                "celsius": "{celsius}",
+                "fahrenheit": "{fahrenheit}",
+                "timestamp": "{timestamp}",
+                "device_id": "{device_id}"
+            },
+            "headers": {
+                "Authorization": "Bearer ABCDE12345"
+            }
         }
     }]
 }
